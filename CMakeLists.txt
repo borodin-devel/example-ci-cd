@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.9.2)
 
-if(DEFINED $ENV{TRAVIS_BUILD_NUMBER})
+if(DEFINED ENV{TRAVIS_BUILD_NUMBER})
+  message(STATUS "Found Travis build system: build number $ENV{TRAVIS_BUILD_NUMBER}")
   set(EX_VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
+  message(STATUS "Using local build system")
   set(EX_VERSION 0.0.1)
 endif()
 
